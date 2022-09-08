@@ -3,8 +3,8 @@ let mySurmame = "My surname Onoshko";
 let myСity = "I live in Kyiv";
 
 let averageFourNumbers = (10 + 10 + 5 + 5) / 4;
-let radius = '50';
-const PI_NUMBER = '3.14';
+let radius = 50;
+const PI_NUMBER = 3.14;
 let areaOfCircle;
 let circleLength;
 
