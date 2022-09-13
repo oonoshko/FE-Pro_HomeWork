@@ -31,8 +31,7 @@ console.log(`You have ${howMoney} UAH.`);
 
 if (howMoney < 8) {
     console.log('Unfortunately, you do not have enough money to buy at least 1(one) any product. Please, come back later.');
-};
-
+} else if (howMoney >= 8) {
 const whatBuy = prompt('What would you like to buy?');
 const watermelon = 'watermelon';
 const carrot = 'carrot';
@@ -55,7 +54,8 @@ if (howMoney < priceWatermelon && whatBuy === watermelon) {
   console.log(`You can buy ${Math.floor(howMoney/pricePotato)} ${potato}(-s) for ${howMoney} UAH and you'll have a change ${howMoney%pricePotato} UAH.`);
 } else if (whatBuy === apple) {
   console.log(`You can buy ${Math.floor(howMoney/priceApple)} ${apple}(-s) for ${howMoney} UAH and you'll have a change ${howMoney%priceApple} UAH.`);
-} else {}
+} 
+}
 
 
 let oneSide = +prompt(`Enter the number side "A"`,0);
