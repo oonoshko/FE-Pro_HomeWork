@@ -88,6 +88,8 @@ if (howMoney < 8) {
         howMoney % priceApple
       } UAH.`
     );
+  } else {
+    console.log(`Sorry, we don't have ${whatBuy}. Please, go to another shop.`);
   }
 }
 
