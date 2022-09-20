@@ -20,13 +20,13 @@ console.log(isPrimeNum);
 
 //Запитати та зберегти суму покупки введене із prompt. Обрахувати знижку та повідомити користувачу значення знижки. Якщо сума покупки до 100 UAН - знижка 3%; якщо сума покупки до 200 UAH - знижка 5%; якщо сума покупки перевищує 200 UAH - знижка 7%
 
-const howMuchMony = +prompt(`What is the sum of your purchase?`);
+const howMuchMoney = +prompt(`What is the sum of your purchase?`);
 let discount = 0;
-for (let i = 0; i <= howMuchMony; i++) {
+for (let i = 0; i <= howMuchMoney; i++) {
   if (i < 100) {
     discount = 3;
   }
-  if (i >= 100 && howMuchMony < 200) {
+  if (i >= 100 && howMuchMoney < 200) {
     discount = 5;
   }
   if (i >= 200) {
@@ -34,8 +34,8 @@ for (let i = 0; i <= howMuchMony; i++) {
   }
 }
 console.log(
-  `The discount of your purchase for ${howMuchMony} UAH is ${
-    (howMuchMony * discount) / 100
+  `The discount of your purchase for ${howMuchMoney} UAH is ${
+    (howMuchMoney * discount) / 100
   } UAH`
 );
 
