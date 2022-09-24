@@ -1,51 +1,48 @@
 const checkingForValidation = (date) => {
-  if (date === undefined || date === null) {
-    return true;
-  }
-  return false;
+  return date === undefined || date === null;
 };
 
 /*Cтворити функцію, яка створює та реєструє нову команду у автопробізі.
 Під час виклику функції потрібно передати дані про команду - назва команди, ім'я водія, рік народження водія, марка автомобіля,
 спонсор команди та чи водій допущений до автопробігу*/
 
-const avtoprobig = () => {
-  nameComand = prompt(`Please enter a name of your comand`);
+const makeRoadDrivingCommand = () => {
+  nameCommand = prompt(`Please enter a name of your command`);
   nameOfDriver = prompt(`Please enter a name of driver`);
-  yearOfBirthday = prompt(`Please enter a year of driver's birthday`);
+  yearOfBirth = prompt(`Please enter a year of driver's birth`);
   carBrand = prompt(`Please enter a car brand`);
-  sponsorOfComsnd = prompt(`Please enter is sponsor of your comand`);
-  isAllowedToDrive = prompt(`Please enter this driver allowed to avtoprobig`);
+  sponsorOfCommand = prompt(`Please enter is sponsor of your command`);
+  isAllowedToDrive = prompt(`Please enter this driver allowed to road driving`);
 
   if (
-    checkingForValidation(nameComand) ||
-    nameComand === "" ||
+    checkingForValidation(nameCommand) ||
+    nameCommand === "" ||
     checkingForValidation(nameOfDriver) ||
     nameOfDriver === "" ||
-    checkingForValidation(yearOfBirthday) ||
-    yearOfBirthday === "" ||
+    checkingForValidation(yearOfBirth) ||
+    yearOfBirth === "" ||
     checkingForValidation(carBrand) ||
     carBrand === "" ||
-    checkingForValidation(sponsorOfComsnd) ||
-    sponsorOfComsnd === "" ||
+    checkingForValidation(sponsorOfCommand) ||
+    sponsorOfCommand === "" ||
     checkingForValidation(isAllowedToDrive)
   ) {
     return console.log(
       "You entered incorrect information. Please, enter information one more."
     );
   } else {
-    let newComand = {
-      nameComand,
+    let newCommand = {
+      nameCommand,
       nameOfDriver,
-      yearOfBirthday,
+      yearOfBirth,
       carBrand,
       sponsorOfComsnd,
       isAllowedToDrive,
     };
-    console.log(newComand);
+    console.log(newCommand);
   }
 };
-avtoprobig();
+makeRoadDrivingCommand();
 
 /* Запитати дані (через prompt та циклічно) про нового користувача у системі та зберегти його в об'єкт.
 Дані про користувача - логін, пароль, місто, країна, стать, вік*/
@@ -93,13 +90,14 @@ if (
 
 let user_1 = user;
 
-const сhangeUserData = () => {
-  if (city.length > "") {
-    return (user_1.city = "Kherson");
+const getChangeUserData = (user_1, city, value) => {
+  if (checkingForValidation(value) || typeof value !== "object") {
+    return (user_1.city = value);
   }
+  return "You entered incorrect information. Please, enter information one more.";
 };
 
-сhangeUserData();
+getChangeUserData(user_1, "city", "Kherson");
 // console.log(user_1);
 // console.log(user);
 
@@ -127,10 +125,10 @@ const student = {
 /* Cтворити функцію isEmpty, яка повертає true, якщо об’єкт не має властивостей (порожній), інакше false.*/
 
 function isEmpty(empty) {
-  for (let object in empty) {
-    return false;
+  if (checkingForValidation(empty) || typeof empty !== "object") {
+    return "You have a false value.";
   }
-  return true;
+  return Object.keys(empty).length === 0 ? true : false;
 }
 isEmpty();
 // console.log(isEmpty());
@@ -148,19 +146,19 @@ const salesTeamRevenue = {
 
 /*Створити фукнцію, яка працює з цим обʼєктом та обчислює суму всіх виручок та виводить результат через сonsole.log*/
 
-const countSum = function () {
+const makeCountSum = function () {
   let sumOfRevenue = 0;
   for (let key in salesTeamRevenue) {
     sumOfRevenue += salesTeamRevenue[key];
   }
   return console.log(`Сума виручки команди = ${sumOfRevenue} грн.`);
 };
-countSum();
+makeCountSum();
 
 /*Створити фукнцію, яка працює з цим обʼєктом та яка знаходить продавця з найменшою виручкою та
 виводить результат через сonsole.log у зрозумілому форматі*/
 
-const minRevenue = () => {
+const getMinRevenue = () => {
   const ArrayValueRevenue = Object.values(salesTeamRevenue).filter(Boolean);
   const filteredByValue = Object.fromEntries(
     Object.entries(salesTeamRevenue).filter(
@@ -173,11 +171,11 @@ const minRevenue = () => {
     )} має найменшу суму виручки = ${Object.values(filteredByValue)} грн.`
   );
 };
-minRevenue();
+getMinRevenue();
 
 /*Створити фукнцію, яка знаходить продавця з найбільшою виручкою та
 виводить результат через сonsole.log у зрозумілому форматі*/
-const maxRevenue = () => {
+const getMaxRevenue = () => {
   const ArrayValueRevenue = Object.values(salesTeamRevenue).filter(Boolean);
   const filteredByValue = Object.fromEntries(
     Object.entries(salesTeamRevenue).filter(
@@ -187,17 +185,21 @@ const maxRevenue = () => {
   return console.log(
     `${Object.keys(
       filteredByValue
-    )} має найменшу суму виручки = ${Object.values(filteredByValue)} грн.`
+    )} має найбільшу суму виручки = ${Object.values(filteredByValue)} грн.`
   );
 };
-maxRevenue();
+getMaxRevenue();
 
 /* Створити фукнцію, яка випадковим чином вибирає продавця місяця та виводить привітання цьому працівнику через сonsole.log у зрозумілому форматі*/
 
-const random = () => {
-  const ArrayKeyRevenue = Object.keys(salesTeamRevenue);
-  const random =
-    ArrayKeyRevenue[Math.floor(Math.random() * ArrayKeyRevenue.length)];
-  return console.log(`Вітаємо в цьому місяці ${random} є продавцем місяця.`);
+const getSalesmanOfTheMonth = () => {
+  const ArraySalesmanOfTheMonth = Object.keys(salesTeamRevenue);
+  const randomSalesmanOfTheMonth =
+    ArraySalesmanOfTheMonth[
+      Math.floor(Math.random() * ArraySalesmanOfTheMonth.length)
+    ];
+  return console.log(
+    `Вітаємо в цьому місяці ${randomSalesmanOfTheMonth} є продавцем місяця.`
+  );
 };
-random();
+getSalesmanOfTheMonth();
