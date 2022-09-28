@@ -1,24 +1,22 @@
 /* - Створити масив, довжину та елементи якого задає користувач (через prompt). Елементами масиву повинні бути числа */
 
-const ArrayNumbers = [];
+const arrayNumbers = [];
 while (true) {
   let value = prompt(`Please enter any number`);
 
   // Обриваємо введення даних?
-  if (value === "" || value === null || !isFinite(value)) break;
-  {
-    ArrayNumbers.push(+value);
+  if (value === "" || value === null || !isFinite(value)) {
+    break;
   }
+  arrayNumbers.push(+value);
 }
-// console.log(ArrayNumbers);
+// console.log(arrayNumbers);
 
 /* - Відсортувати масив за зростанням. */
 
-const applySortArrayNumbers = ArrayNumbers.sort(
-  (lessNumber, moreNumber) => lessNumber - moreNumber
-);
+arrayNumbers.sort((lessNumber, moreNumber) => lessNumber - moreNumber);
 
-// console.log(applySortArrayNumbers);
+// console.log(arrayNumbers);
 
 /* Дано масив - список покупок. Кожен елемент масиву - це обʼєкт вигляду: 
 {productName: 'bread', productPrice: 14.5, productQuantity: 2}. 
@@ -36,9 +34,10 @@ const arrayProduct = [
 
 /* - Порахувати загальну вартість корзини та вивести суму у зрозумілому форматі */
 
-const getTotalCostOfShopping = arrayProduct
-  .map((item) => item.productPrice * item.productQuantity)
-  .reduce((prev, curr) => prev + curr, 0);
+const getTotalCostOfShopping = arrayProduct.reduce(
+  (prev, curr) => curr.productPrice * curr.productQuantity + prev,
+  0
+);
 
 console.log(
   `The total sum of the shopping cart is ${getTotalCostOfShopping} UAH.`
@@ -47,13 +46,11 @@ console.log(
 /* - Порахувати найменшу кількість продукту, який потрібно купити */
 
 const getMinQuantityOfProduct = Math.min(
-  ...arrayProduct.map((element) => element.productQuantity, 0)
+  ...arrayProduct.map((element) => element.productQuantity)
 );
 
 const getNameMinQuantityOfProduct = arrayProduct.find(
-  (element) =>
-    element.productQuantity ===
-    Math.min(...arrayProduct.map((element) => element.productQuantity, 0))
+  (element) => element.productQuantity === getMinQuantityOfProduct
 );
 
 console.log(
@@ -78,6 +75,7 @@ const getTheMostExpensiveProduct = arrayProduct.find(
     element.productPrice ===
     Math.max(...arrayProduct.map((element) => element.productPrice))
 );
+
 console.log(
   `The most expensive product, which need to buy is "${getTheMostExpensiveProduct.productName}".`
 );
@@ -85,46 +83,46 @@ console.log(
 // /* Створити функцію, яка повинна додавати новий продукт в існуючий масив
 //    Дані про новий продукт - користувач вводить із prompt */
 
-function makeAddNewProduct() {
-  let newProduct = {};
+function addNewProduct() {
+  const newProduct = {};
 
   newProduct.productName = prompt("Please enter a product name", "lemon");
   newProduct.productPrice = +prompt("Please enter a product price", 1);
   newProduct.productQuantity = +prompt("Please enter a product quantity", 1);
   if (newProduct.productName === null || newProduct.productName === "") {
-    return console.log(
+    console.log(
       `You didn't enter any product name. Please enter a product name (e.g. lemon).`
     );
   } else if (newProduct.productPrice <= 0 || isNaN(newProduct.productPrice)) {
-    return console.log(
+    console.log(
       `${newProduct.productName} can't have price ${newProduct.productPrice}. Please enter a real price.`
     );
   } else if (
     newProduct.productQuantity <= 0 ||
     isNaN(newProduct.productQuantity)
   ) {
-    return console.log(
+    console.log(
       `You can't add ${newProduct.productQuantity} ${newProduct.productName}. Please enter a quantity to add ${newProduct.productName}.`
     );
   } else {
     arrayProduct.push(newProduct);
-    return "Added:\n", arrayProduct[arrayProduct.length - 1];
+    "Added:\n", arrayProduct[arrayProduct.length - 1];
   }
 }
 
-makeAddNewProduct();
+addNewProduct();
 // console.log(arrayProduct);
 
 /* Створити функцію, яка повинна видаляти конкретний продукт із існуючий масиву продуктів
 Дані про видалення такого продукту - користувач вводить із prompt лише назву */
-function makeDeleteProduct() {
-  deleteProductByName = prompt(
+
+function deleteProduct() {
+  const deleteProductByName = prompt(
     "Please enter a product name starting with a small letter (e.g. apple)."
   );
 
-  index = arrayProduct.findIndex(
-    (element) => element.productName === deleteProductByName,
-    1
+  const index = arrayProduct.findIndex(
+    (element) => element.productName === deleteProductByName
   );
   if (index > -1) {
     arrayProduct.splice(index, 1);
@@ -134,7 +132,7 @@ function makeDeleteProduct() {
     );
   }
 }
-makeDeleteProduct();
+deleteProduct();
 // console.log(arrayProduct);
 
 /* Дано масив */
@@ -146,70 +144,81 @@ const array = [
 
 /* - Знайти суму та кількість позитивних елементів. */
 
-const getSumPositiveElementsArray = array
-  .filter((element) => element > 0)
-  .reduce((sum, current) => sum + current);
+const getSumPositiveElementsArray = array.reduce(function (sum, current) {
+  return current > 0 ? sum + current : sum;
+});
+
 const getNumbersOfPositiveElementsArray = array.filter(
   (element) => element > 0
 ).length;
+
 console.log(
   `The sum of positive elements = ${getSumPositiveElementsArray} and their quantity = ${getNumbersOfPositiveElementsArray}.`
 );
-undefined;
+
 /* - Знайти мінімальний елемент масиву та його порядковий номер. */
 
-const getMinElementArray = Math.min.apply(null, array);
+const getMinElementArray = Math.min(...array);
+
 const getIndexMinElementArray = array.findIndex(
-  (element) => element === getMinElementArray,
-  1
+  (element) => element === getMinElementArray
 );
+
 console.log(
   `The minimum array element is ${getMinElementArray} and its sequence number = ${getIndexMinElementArray}.`
 );
 
 /* - Знайти максимальний елемент масиву та його порядковий номер. */
 
-const getMaxElementArray = Math.max.apply(null, array);
+const getMaxElementArray = Math.max(...array);
+
 const getIndexMaxElementArray = array.findIndex(
-  (element) => element === getMaxElementArray,
-  1
+  (element) => element === getMaxElementArray
 );
+
 console.log(
   `The maximum array element is ${getMaxElementArray} and its sequence number = ${getIndexMaxElementArray}.`
 );
+
 /* - Визначити кількість негативних елементів */
 
 const getNumbersNegativeElementsArray = array.filter(
   (element) => element < 0
 ).length;
+
 console.log(
   `The number of negative elements is ${getNumbersNegativeElementsArray}.`
 );
 
 /* - Знайти кількість непарних позитивних елементів. */
 
-const getNumbersOddPositiveElementsArray = array
-  .filter((element) => element > 0)
-  .filter((element) => element % 2 !== 0).length;
+const getNumbersOddPositiveElementsArray = array.filter(
+  (element) => element > 0 && element % 2 !== 0
+).length;
+
 console.log(
   `The number of odd positive elements is ${getNumbersOddPositiveElementsArray}.`
 );
 
 /* - Знайти суму парних позитивних елементів. */
 
-const getSumEvenPositiveElementsArray = array
-  .filter((element) => element > 0)
-  .filter((element) => element % 2 === 0)
-  .reduce((sum, current) => sum + current);
+const getSumEvenPositiveElementsArray = array.reduce(function (sum, current) {
+  return current > 0 && current % 2 === 0 ? sum + current : sum;
+});
+
 console.log(
   `The sum of even positive elements is ${getSumEvenPositiveElementsArray}.`
 );
 
 /* - Знайти добуток позитивних елементів. */
 
-const getMultiplicationPositiveElementsArray = array
-  .filter((element) => element > 0)
-  .reduce((sum, current) => sum * current);
+const getMultiplicationPositiveElementsArray = array.reduce(function (
+  sum,
+  current
+) {
+  return current > 0 ? sum * current : sum;
+});
+
 console.log(
   `The multiplication of positive elements is ${getMultiplicationPositiveElementsArray}.`
 );
