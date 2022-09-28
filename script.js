@@ -36,7 +36,7 @@ const makeRoadDrivingCommand = () => {
       nameOfDriver,
       yearOfBirth,
       carBrand,
-      sponsorOfComsnd,
+      sponsorOfCommand,
       isAllowedToDrive,
     };
     console.log(newCommand);
@@ -97,7 +97,7 @@ const getChangeUserData = (user_1, city, value) => {
   return "You entered incorrect information. Please, enter information one more.";
 };
 
-getChangeUserData(user_1, "city", "Kherson");
+getChangeUserData(user_1, "city", value);
 // console.log(user_1);
 // console.log(user);
 
