@@ -105,7 +105,8 @@ function isObjectEquals(firstObj, secondObj) {
 }
 isObjectEquals();
 
-isObjectEquals(firstObj, secondObj);
+// isObjectEquals(firstObj, secondObj);
+// isObjectEquals(oleg, iryna);
 
 /* Створіть функцію-конструктор Calculator, який створює об’єкти з трьома методами:
 enterData - запитує два значення за допомогою prompt і запам’ятовує їх у властивостях об’єкта.
@@ -158,7 +159,10 @@ const calculator = new Calculator(
   +prompt("Please enter second any number.")
 );
 calculator.enterData();
+calculator.calculateSum();
+calculator.calculateNSD();
+calculator.calculateNSK();
 
-console.log(`Sum=${calculator.calculateSum()}`);
-console.log(`NSD=${calculator.calculateNSD()}`);
-console.log(`NSK=${calculator.calculateNSK()}`);
+// console.log(`Sum=${calculator.calculateSum()}`);
+// console.log(`NSD=${calculator.calculateNSD()}`);
+// console.log(`NSK=${calculator.calculateNSK()}`);
