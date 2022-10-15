@@ -24,7 +24,7 @@ const iryna = new Person("Iryna", 33, "women", "Ukrainian", "Ukraine", [
   "Japan",
   "Malta",
   "Spain",
-  "Singapur",
+  "Singapore",
   "Italy",
 ]);
 
