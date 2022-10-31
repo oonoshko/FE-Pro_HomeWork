@@ -203,11 +203,11 @@ const listProducts = [
 ];
 
 const container = document.createElement("div");
-container.className = "container";
+container.classList.add("container");
 document.body.prepend(container);
 
 const productList = document.createElement("ul");
-productList.className = "productList";
+productList.classList.add("productList");
 container.prepend(productList);
 
 const generateProductCard = function (
@@ -218,13 +218,13 @@ const generateProductCard = function (
   productPrice
 ) {
   return `
-  <li class ='productCard'> 
+  <li class='productCard'> 
       <span class='productName'>${productName}:</span>
-      <span class='productPrice'> Price: ${productPrice.toFixed(2)} UAH.</span>
-      <span class='productProvider'> Provided by: ${productProvider}.</span>
+      <span class='productPrice'>Price: ${productPrice.toFixed(2)} UAH.</span>
+      <span class='productProvider'>Provided by: ${productProvider}.</span>
       <span>Made in: <img src='${productCountry}'class='productCountry  alt='ukrainianFlag'></span>
       <p class='details'>Weight - ${productData.weight} gram.
-       <span class='certificate'> Certificate: ${
+       <span class='certificate'>Certificate: ${
          productData.certificate ? true : "!"
        }.</span>
       Date of expiry: ${productData.dateOfExpiry}.
@@ -247,7 +247,7 @@ productList.innerHTML = productHTML;
 
 const getTotalPrice = function () {
   const totalPrice = document.createElement("p");
-  totalPrice.className = "totalPrice";
+  totalPrice.classList.add("totalPrice");
   totalPrice.innerHTML = `The total price of products is ${listProducts.reduce(
     (sum, elem) => sum + elem.productPrice,
     0
@@ -259,7 +259,7 @@ getTotalPrice();
 
 const getTheMostExpensiveProduct = function () {
   const mostExpensiveProduct = document.createElement("p");
-  mostExpensiveProduct.className = "mostExpensiveProduct";
+  mostExpensiveProduct.classList.add("mostExpensiveProduct");
   const result = listProducts.find(
     (element) =>
       element.productPrice ===
@@ -273,7 +273,7 @@ getTheMostExpensiveProduct();
 
 const getAveragePrice = function () {
   const averagePrice = document.createElement("p");
-  averagePrice.className = "averagePrice";
+  averagePrice.classList.add("averagePrice");
   const totalPrice = listProducts.reduce(
     (sum, elem) => sum + elem.productPrice,
     0
