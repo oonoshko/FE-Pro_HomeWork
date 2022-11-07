@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeWork12</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapperTimeout">
+            <input type="number" id="input" placeholder="Enter any number">
+            <button type="button" id="btn">Start timeout</button>
+        </div>
+        <div class="countdown">
+            <input type="date" class="time">
+            <button type="button" id="button">Start Campaign</button>
+            <h3>До старту кампанії залишилось</h3>
+            <div class="result">
+                <p>РОКІВ:</p><span class="year"></span>
+                <p>МІСЯЦІВ:</p>
+                <span class="month"></span>
+                <p>ГОДИН:</p>
+                <span class="hour"></span>
+                <p>ХВИЛИН:</p>
+                <span class="minutes"></span>
+                <p>СЕКУНД:</p>
+                <span class="second"></span>
+
+            </div>
+        </div>
+        <div class="blockCalculate">
+            <select name="phone" id="phone">
+                <option value="0" disabled selected>Select the phone model</option>
+                <option value="20000">iPhone</option>
+                <option value="18000">Samsung</option>
+                <option value="15000">Pixel</option>
+                <option value="12000">OnePlus</option>
+            </select>
+            <select name="ram" id="ram">
+                <option value="0" disabled selected>Select the RAM</option>
+                <option value="1000">2GB</option>
+                <option value="2000">4GB</option>
+                <option value="3000">6GB</option>
+                <option value="4000">8GB</option>
+            </select>
+            <select name="memory" id="memory">
+                <option value="0" disabled selected>Select the phone memory</option>
+                <option value="1500">64GB</option>
+                <option value="3000">128GB</option>
+                <option value="4000">256GB</option>
+                <option value="5000">512GB</option>
+            </select>
+            <button id="totalPrice">Calculate</button>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

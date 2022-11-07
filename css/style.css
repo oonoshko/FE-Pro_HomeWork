@@ -1,0 +1,49 @@
+@import url(reset.css);
+.wrapperTimeout {
+  width: 340px;
+  background-color: rgb(229, 221, 221);
+  margin: 50px auto;
+  padding: 20px;
+}
+
+#input {
+  width: 63%;
+  padding: 7px 0;
+  text-align: center;
+}
+
+#btn,
+#button {
+  width: 35%;
+  padding: 7px 0;
+  background-color: chocolate;
+  color: white;
+  cursor: pointer;
+}
+.countdown {
+  background-color: rgb(229, 221, 221);
+  width: 500px;
+  padding: 20px 10px;
+  margin: 0 auto;
+}
+.time {
+  padding: 5px;
+  width: 64%;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+h3 {
+  margin: 20px 0;
+  text-align: center;
+}
+.blockCalculate {
+  text-align: center;
+  margin: 40px 0 0 0;
+}
+.blockCalculate p {
+  margin-top: 10px;
+}
