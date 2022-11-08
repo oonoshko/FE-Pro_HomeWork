@@ -1,16 +1,18 @@
 /* Input-поле із кнопкою «Start timeout» — у інпут-полі користувач може ввести кількість відповідних секунд,
 які залишилися у росії та росіяни до їх зникнення */
-
+const wrapper = document.querySelector(".wrapperTimeout");
 const startTimeout = document.querySelector("#btn");
 const number = document.querySelector("#input");
+const p = document.createElement("p");
 
-function countDown(timer) {
-  number.innerHTML = number.value;
-  number.value--;
+function countDown() {
   if (number.value <= 0) {
-    clearTimeout(timer);
+    p.innerHTML = "A number must be positive.";
+    wrapper.append(p);
   } else {
-    timer = setTimeout(countDown, 1000);
+    number.innerHTML = number.value;
+    number.value--;
+    setTimeout(countDown, 1000);
   }
 }
 
