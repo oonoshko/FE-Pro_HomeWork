@@ -10,23 +10,27 @@ const btnCentury = document.querySelector("#btnCentury");
 
 const resultCentury = document.createElement("p");
 const getCentury = function (year) {
-  const century = Math.ceil(year / 100);
+  let century = Math.ceil(year / 100);
   if (year.length > 4) {
     return "You should enter only four numbers.";
   }
   if (year <= 0) {
     return `${year} is not allow for a year.`;
   }
-  switch (century % 10) {
+  switch (year % 10) {
     case 1:
-      return `${year} year is ${century}st century.`;
+      century += "st century.";
+      break;
     case 2:
-      return `${year} year is ${century}nd century.`;
+      century += "nd century.";
+      break;
     case 3:
-      return `${year} year is ${century}rd century.`;
+      century += "rd century.";
+      break;
     default:
-      return `${year} year is ${century}th century.`;
+      century += "th century.";
   }
+  return `${year} year is ${century}`;
 };
 
 btnCentury.addEventListener("click", () => {
@@ -48,7 +52,7 @@ const resultReplacement = document.createElement("p");
 
 function vowelOne(string) {
   let withoutVowels = "";
-  const vowel = "aeiuo";
+  const vowel = "aeiuoAEIUO";
   for (let i = 0; i < string.length; i++) {
     if (vowel.includes(string[i])) {
       withoutVowels += "1";
@@ -111,9 +115,13 @@ const resultHighAndLow = document.createElement("p");
 
 const highAndLow = function (numbers) {
   numbers = numbers.split(" ");
-  return `The max number is ${Math.max(
-    ...numbers
-  )} and the nim number is ${Math.min(...numbers)}.`;
+  console.log(numbers);
+  const max = Math.max(...numbers);
+  const min = Math.min(...numbers);
+  if (isNaN(max) || isNaN(min)) {
+    return "You entered wrong data. Please enter only number.";
+  }
+  return `The max number is ${max} and the nim number is ${min}.`;
 };
 
 btnHighAndLow.addEventListener("click", () => {
@@ -134,7 +142,7 @@ const resultPhone = document.createElement("p");
 
 const createPhoneNumber = function (numbers) {
   if (numbers < 0) {
-    return "You should enter the positive numbers.";
+    return "You should enter the positive numbers only.";
   }
   if (numbers.length > 10) {
     return "You should enter only ten numbers.";
