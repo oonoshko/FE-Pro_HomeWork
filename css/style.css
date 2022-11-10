@@ -1,0 +1,32 @@
+@import url(reset.css);
+.century,
+.vowelsLetter,
+.reverse,
+.highAndLow,
+.phone {
+  text-align: center;
+  margin-top: 25px;
+}
+#input1,
+#input2,
+#input3,
+#input4,
+#input5 {
+  font-size: 2rem;
+  padding: 5px;
+}
+
+#btnCentury,
+#btnVowel,
+#btnReverse,
+#btnHighAndLow,
+#btnPhone {
+  font-size: 2rem;
+  background-color: brown;
+  color: white;
+  padding: 5px;
+}
+p {
+  font-size: 2.5rem;
+  padding-top: 20px;
+}
