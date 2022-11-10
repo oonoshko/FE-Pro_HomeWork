@@ -115,7 +115,7 @@ const resultHighAndLow = document.createElement("p");
 
 const highAndLow = function (numbers) {
   numbers = numbers.split(" ");
-  console.log(numbers);
+
   const max = Math.max(...numbers);
   const min = Math.min(...numbers);
   if (isNaN(max) || isNaN(min)) {
