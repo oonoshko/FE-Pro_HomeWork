@@ -24,19 +24,24 @@ const locationCity = {
   "New York": 349727,
 };
 
+const p = document.createElement("p");
+
 const getLocationCity = function () {
   for (const city in locationCity) {
     if (input.value === city) {
       return locationCity[city];
     }
   }
-  const p = document.createElement("p");
+
   p.innerHTML = "You entered wrong city.";
   wrapper.append(p);
 };
 
-const getInfoWeather = function (resultDayly) {
-  for (const infoWeather of resultDayly) {
+const getInfoWeather = function (resultDaily) {
+  for (const infoWeather of resultDaily) {
+    const wrapperWeather = document.createElement("div");
+    wrapperWeather.classList.add("wrapperWeather");
+
     const day = new Date(infoWeather.Date).getDate();
     const month = new Date(infoWeather.Date).getMonth();
     const year = new Date(infoWeather.Date).getFullYear();
@@ -52,16 +57,12 @@ const getInfoWeather = function (resultDayly) {
     const weatherDay = infoWeather.Day.IconPhrase;
     const weatherNight = infoWeather.Night.IconPhrase;
 
-    const wrapperWeather = document.createElement("div");
-    wrapperWeather.classList.add("wrapperWeather");
-    wrapperResult.append(wrapperWeather);
-
-    const resultWeather = `
+    wrapperWeather.innerHTML = `
         <p class='date'>${day}/${month}/${year}</p>
         <p class='temperature'>Min:<strong>${minTemperature}°C</strong> Max:<strong>${maxTemperature}°C</strong></p>
         <p class='dayNight'>Day: ${weatherDay}</p>
         <p class='dayNight'>Night:${weatherNight}</p>`;
-    wrapperWeather.innerHTML = resultWeather;
+    wrapperResult.append(wrapperWeather);
   }
 };
 
@@ -72,17 +73,16 @@ function loadWeather() {
   xhr.onload = function () {
     if (this.readyState === 4 && this.status === 200) {
       const result = JSON.parse(this.response);
-      const resultDayly = result.DailyForecasts;
-      getInfoWeather(resultDayly);
+      const resultDaily = result.DailyForecasts;
+      getInfoWeather(resultDaily);
     } else if (this.status !== 200) {
       console.error(`Error ${xhr.status}: ${xhr.statusText}.`);
     } else {
       console.error("Something went wrong.");
     }
   };
-  clear();
-}
-function clear() {
   input.value = "";
+  wrapperResult.innerHTML = "";
 }
+
 btnWeather.addEventListener("click", loadWeather);
