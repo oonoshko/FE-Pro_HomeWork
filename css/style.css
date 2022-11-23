@@ -1,4 +1,7 @@
 @import url(reset.css);
+body {
+  height: 100vh;
+}
 
 .wrapperSearch {
   text-align: center;
@@ -90,3 +93,16 @@
 }
 
 /* Pagination */
+#pagination {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+.page {
+  cursor: pointer;
+  background-color: rgb(163, 158, 158);
+  color: white;
+  padding: 3px;
+}
