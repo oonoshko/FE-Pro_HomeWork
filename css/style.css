@@ -1,0 +1,108 @@
+@import url(reset.css);
+body {
+  height: 100vh;
+}
+
+.wrapperSearch {
+  text-align: center;
+  margin-top: 25px;
+}
+#input1 {
+  font-size: 2rem;
+  padding: 5px;
+  border-radius: 12px;
+  outline: none;
+}
+
+#btn {
+  font-size: 2rem;
+  background-color: brown;
+  color: white;
+  padding: 5px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+#result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.wrapperSearch {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.cardMovies {
+  width: 130px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(240, 240, 228);
+}
+.poster {
+  /* width: 150px; */
+}
+.title {
+  width: 130px;
+  font-weight: 600;
+  line-height: 24px;
+  margin-bottom: 5px;
+}
+.year {
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 5px;
+  flex-grow: 1;
+}
+.moreDetails {
+  width: 100%;
+  font-weight: 700;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.moreDetails:hover {
+  background-color: white;
+  color: black;
+}
+.error {
+  max-width: 40%;
+  display: block;
+  margin: auto;
+}
+.textError {
+  font-size: 4rem;
+  text-align: center;
+}
+
+/* Details info */
+.detailsMovie {
+  width: 500px;
+  margin: 25px auto;
+}
+.cardMoviesDetails {
+  text-align: left;
+}
+.cardMoviesDetails p {
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+/* Pagination */
+#pagination {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+.page {
+  cursor: pointer;
+  background-color: rgb(163, 158, 158);
+  color: white;
+  padding: 3px;
+}
