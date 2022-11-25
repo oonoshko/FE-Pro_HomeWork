@@ -7,7 +7,7 @@ const pagination = document.querySelector("#pagination");
 const detailsMovie = document.querySelector(".detailsMovie");
 
 let counter = 1;
-const MoviesPerPage = 10;
+const MOVIES_PER_PAGE = 10;
 
 const loadMovies = function () {
   const url = `http://www.omdbapi.com/?apikey=${API_KEY}&s=${input.value}&page=${counter}`; // тут я захордкодив значення batman й пагінація працює
@@ -49,7 +49,7 @@ const displayPagination = function (total) {
   pagination.innerHTML = "";
   detailsMovie.innerHTML = "";
 
-  for (let i = 0; i < total / MoviesPerPage && i < 100; i++) {
+  for (let i = 0; i < total / MOVIES_PER_PAGE && i < 100; i++) {
     const spanEl = document.createElement("span");
     spanEl.classList.add("page");
 
@@ -57,16 +57,18 @@ const displayPagination = function (total) {
 
     pagination.append(spanEl);
 
-    spanEl.addEventListener("click", (event) => {
-      event.preventDefault();
-      counter = +event.target.innerText;
-      loadMovies();
-      detailsMovie.innerHTML = "";
-    });
+    spanEl.addEventListener("click", navigatePages);
     if (counter !== 1) {
       counter = 1;
     }
   }
+};
+
+const navigatePages = function (event) {
+  event.preventDefault();
+  counter = +event.target.innerText;
+  loadMovies();
+  detailsMovie.innerHTML = "";
 };
 
 const displayMovies = function (moviesList) {
@@ -119,7 +121,15 @@ const loadDetails = function (id) {
       displayMoviesDetails(info);
     })
     .catch((error) => {
-      console.log("Movie not found");
+      error = document.createElement("div");
+      error.classList.add("mistake");
+
+      const errorElP = document.createElement("p");
+      errorElP.classList.add("textError");
+      errorElP.innerHTML = "Movie not found";
+
+      error.append(errorElP);
+      result.append(error);
     });
 };
 
