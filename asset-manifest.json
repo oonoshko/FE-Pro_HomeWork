@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/FE-Pro_HomeWork/static/css/main.c927a659.css",
+    "main.js": "/FE-Pro_HomeWork/static/js/main.abd8edc8.js",
+    "index.html": "/FE-Pro_HomeWork/index.html",
+    "main.c927a659.css.map": "/FE-Pro_HomeWork/static/css/main.c927a659.css.map",
+    "main.abd8edc8.js.map": "/FE-Pro_HomeWork/static/js/main.abd8edc8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c927a659.css",
+    "static/js/main.abd8edc8.js"
+  ]
+}
