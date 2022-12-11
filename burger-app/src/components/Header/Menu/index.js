@@ -4,11 +4,11 @@ import MenuItem from "./MenuItem";
 const Menu = () => {
   return (
     <MenuStyled>
-      <MenuItem></MenuItem>
-      <MenuItem></MenuItem>
-      <MenuItem></MenuItem>
-      <MenuItem></MenuItem>
-      <MenuItem></MenuItem>
+      <MenuItem />
+      <MenuItem />
+      <MenuItem />
+      <MenuItem />
+      <MenuItem />
     </MenuStyled>
   );
 };

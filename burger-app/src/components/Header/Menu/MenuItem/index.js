@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const MenuItem = () => {
-  return <MenuItemStyled></MenuItemStyled>;
+  return <MenuItemStyled />;
 };
 
 const MenuItemStyled = styled.li({

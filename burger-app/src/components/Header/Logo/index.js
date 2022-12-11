@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Logo = () => {
-  return <LogoStyled></LogoStyled>;
+  return <LogoStyled />;
 };
 
 const LogoStyled = styled.div({

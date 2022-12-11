@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const BlogItem = () => {
-  return <BlogItemStyled></BlogItemStyled>;
+  return <BlogItemStyled />;
 };
 
 const BlogItemStyled = styled.p({

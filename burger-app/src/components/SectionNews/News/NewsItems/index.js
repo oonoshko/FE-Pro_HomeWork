@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const NewsItem = () => {
-  return <NewsItemStyled></NewsItemStyled>;
+  return <NewsItemStyled />;
 };
 
 const NewsItemStyled = styled.p({

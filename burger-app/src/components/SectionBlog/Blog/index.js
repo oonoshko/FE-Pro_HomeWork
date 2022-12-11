@@ -4,10 +4,10 @@ import BlogItem from "./BlogItems";
 const Blog = () => {
   return (
     <BlogStyled>
-      <BlogItem></BlogItem>
-      <BlogItem></BlogItem>
-      <BlogItem></BlogItem>
-      <BlogItem></BlogItem>
+      <BlogItem />
+      <BlogItem />
+      <BlogItem />
+      <BlogItem />
     </BlogStyled>
   );
 };

@@ -4,9 +4,9 @@ import NewsItem from "./NewsItems";
 const News = () => {
   return (
     <NewsStyled>
-      <NewsItem></NewsItem>
-      <NewsItem></NewsItem>
-      <NewsItem></NewsItem>
+      <NewsItem />
+      <NewsItem />
+      <NewsItem />
     </NewsStyled>
   );
 };
